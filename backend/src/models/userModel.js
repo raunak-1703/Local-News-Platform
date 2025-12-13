@@ -25,6 +25,14 @@ const userSchema = new mongoose.Schema(
     location: {
       type: String,
     },
+    totalPosts:{
+        type:Number,
+        default: 0,
+    },
+    totalUpvotes:{
+        type:Number,
+        default:0,
+    }
   },
   { timestamps: true }
 );

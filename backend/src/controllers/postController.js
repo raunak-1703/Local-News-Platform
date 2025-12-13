@@ -73,3 +73,17 @@ export const getTrendingPosts = async (req, res) => {
     res.status(500).json({ message: "Error fetching trending posts" });
   }
 };
+
+export const reportPost = async (req,res)=>{
+    const {reason} = req.body;
+    try {
+        const report = await Report.create({post:req.params.id,
+        reportedBy:req.user._id,
+        reason,
+        })
+
+        res.status(201).json(report);
+    } catch (error) {
+        res.status(500).json({message:'Error reporting post'});
+    }
+}

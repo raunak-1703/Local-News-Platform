@@ -13,7 +13,7 @@ const protect = async (req,res,next)=>{
     }
 
     try {
-        const decoded = jwt.verify(token,ENV.jwt_SECRET);
+        const decoded = jwt.verify(token,ENV.JWT_SECRET);
         req.user = await User.findById(decoded.id).select('-password');
         next();
     } catch (error) {

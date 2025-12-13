@@ -3,6 +3,7 @@ import cors from "cors";
 import { ENV } from "./lib/env.js";
 import connectDB from "./lib/db.js";
 import authrouter from "./routes/authRoutes.js";
+import postRouter from "./routes/postRoutes.js";
 
 const app = express();
 const PORT = ENV.PORT;
@@ -11,6 +12,7 @@ app.use(express.json());
 
 
 app.use('/api/auth',authrouter);
+app.use('/api/posts',postRouter);
 
 app.get('/', (req, res) => {
   res.send("API is running...");

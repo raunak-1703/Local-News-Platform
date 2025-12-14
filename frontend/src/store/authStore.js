@@ -1,56 +1,92 @@
-import {create} from 'zustand';
-import API from '../services/api.js';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import API from "../services/api";
 
-const useAuthStore = create((set)=>({
-    user:null,
-    token:localStorage.getItem('token') || null,
-    loading:false,
-    error:null,
+const useAuthStore = create(
+  persist(
+    (set, get) => ({
+      user: null,
+      token: null,
+      isAuthenticated: false,
+      loading: false,
+      error: null,
 
-    login: async (email,password)=>{
+      // Login
+      login: async (email, password) => {
+        set({ loading: true, error: null });
+
         try {
-            set({loading:true,error:null});
-            const res = await API.post('/auth/login',{email,password})
+          const res = await API.post("/auth/login", { email, password });
 
-            localStorage.setItem('token',res.data.token);
-
-            set({
-                user: res.data,
-                token: res.data.token,
-                loading:false
-            })
+          set({
+            user: res.data,
+            token: res.data.token,
+            isAuthenticated: true,
+            loading: false,
+          });
+          return true;
         } catch (error) {
-            set({
-                error:error.response?.data?.message || 'Login failed',
-                loading:false,
-            })
+          set({
+            error: error.response?.data?.message || "Login failed",
+            loading: false,
+          });
+          return false;
         }
-    },
+      },
 
-    register: async (data)=>{
-        try{
-            set({loading:true,error:null});
+      // Register
+      register: async ({ name, email, password, location }) => {
+        set({ loading: true, error: null });
 
-            const res = await API.post('/auth/register',data);
-            localStorage.setItem('token', res.data.token);
+        try {
+          const res = await API.post("auth/register", {
+            name,
+            email,
+            password,
+            location,
+          });
 
-            set({
-               user:res.data,
-               token:res.data.token,
-               loading:false, 
-            })
+          set({
+            user: res.data,
+            token: res.data.token,
+            isAuthenticated: true,
+            loading: false,
+          });
+
+          return true;
+        } catch (error) {
+          set({
+            error: error.response?.data?.message || "Registration failed",
+            loading: false,
+          });
+          return false;
         }
-        catch(error){
-            set({
-                error:error.response?.data?.message || 'Registration failed',
-                loading:false,
-            })
-        }
-    },
-    logout: ()=>{
-        localStorage.removeItem('token');
-        set({user:null, token:null})
+      },
+
+      // Logout
+      logout: () => {
+        set({
+          user: null,
+          token: null,
+          isAuthenticated: false,
+        });
+      },
+
+      // Check for Admin role
+      isAdmin: () => {
+        return get().user?.role === "admin";
+      },
+    }),
+
+    {
+      name: "auth-storage",
+      partialize: (state) => ({
+        user: state.user,
+        token: state.token,
+        isAuthenticated: state.isAuthenticated,
+      }),
     }
-}))
+  )
+);
 
 export default useAuthStore;

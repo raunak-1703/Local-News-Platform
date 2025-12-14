@@ -2,10 +2,10 @@ import Comment from "../models/commentModel.js";
 import Post from "../models/postModel.js";
 
 export const addComment = async (req,res)=>{
-    const {text} = req.body;
+    const {content} = req.body;
     try {
-        const comment = await Comment.create({
-            text,
+        let comment = await Comment.create({
+            text:content,
             post:req.params.postId,
             author:req.user._id,
         })
@@ -13,7 +13,7 @@ export const addComment = async (req,res)=>{
         await Post.findByIdAndUpdate(req.params.postId,{
             $inc:{commentsCount:1}
         })
-
+        comment = await comment.populate('author', 'name');
         res.status(201).json(comment);
     }
     catch (error){

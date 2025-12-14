@@ -1,6 +1,7 @@
 import Post from "../models/postModel.js";
 import { calculatedTrendingScore } from "../utils/trendingScore.js";
 import User from "../models/userModel.js";
+import Report from '../models/reportedModel.js'
 
 export const createPost = async (req, res) => {
   const { title, content, category, location, media } = req.body;
@@ -55,7 +56,9 @@ export const toggleUpvote = async (req, res) => {
   post.upvoteCount = post.upvotes.length;
   await post.save();
 
-  res.json({ upvoteCount: post.upvoteCount });
+  res.json({ upvoteCount: post.upvoteCount,
+    upvotes: post.upvotes
+  });
 };
 
 export const getTrendingPosts = async (req, res) => {
@@ -77,13 +80,27 @@ export const getTrendingPosts = async (req, res) => {
 export const reportPost = async (req,res)=>{
     const {reason} = req.body;
     try {
-        const report = await Report.create({post:req.params.id,
+        const report = await Report.create({
+        posts:req.params.id,
         reportedBy:req.user._id,
         reason,
         })
 
         res.status(201).json(report);
     } catch (error) {
+      console.log(error)
         res.status(500).json({message:'Error reporting post'});
     }
+}
+
+export const getPostById = async (req,res)=>{
+  try {
+    const post = await Post.findById(req.params.id).populate('author','name email location')
+    if(!post){
+      return res.status(404).json({message:'Post not found'});
+    }
+    res.json(post)
+  } catch (error) {
+    res.status(500).json({message:'Error fetching post'})
+  }
 }

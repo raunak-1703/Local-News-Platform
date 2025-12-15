@@ -186,6 +186,22 @@ The frontend application will run at: `http://localhost:5173`.
 | **GET** | `/api/comments/:postId` | Get comments for a specific post | No |
 | **POST** | `/api/comments/:postId` | Add a new comment to a post | Yes (User) |
 
+
+## 🔒 Admin Panel Access (Temporary)
+
+**NOTE:** This user is created for testing and demonstration purposes only. Please use this account to check the admin dashboard features in the live deployed project.
+
+| Credential Type | Value |
+| :--- | :--- |
+| **Admin User ID (Email)** | `raunak@test.com` |
+| **Password** | `123456` |
+
+### ➡️ Next Steps
+1.  Navigate to the `/login` page.
+2.  Log in using the credentials above.
+3.  Visit the `/admin` route to access the Admin Panel.
+
+
 ## 🏁 Future Enhancements
 
 The following features are planned for future iterations:

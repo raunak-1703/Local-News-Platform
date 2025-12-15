@@ -19,7 +19,6 @@ import useAuthStore from "@/store/authStore";
 import usePostStore from "@/store/postStore";
 import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
-import gsap from "gsap";
 
 const postDetails = () => {
     const {id} = useParams();
@@ -32,15 +31,7 @@ const postDetails = () => {
         return()=>clearCurrentPost();
     },[id])
 
-    useEffect(() => {
-    if (currentPost) {
-      gsap.fromTo(
-        ".post-content",
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
-      );
-    }
-  }, [currentPost]);
+  
 
   const handleUpvote = async ()=>{
     if(!user){

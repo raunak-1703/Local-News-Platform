@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import useAuthStore from "@/store/authStore";
 import { toast } from "sonner";
-import gsap from "gsap";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,17 +18,7 @@ const Login = () => {
     password:'',
   })
 
-  useEffect(()=>{
-    if(isAuthenticated){
-      navigate('/');
 
-      gsap.fromTo(
-      ".login-card",
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
-    );
-    }
-  },[isAuthenticated,navigate])
 
   const handleChange = (e)=>{
     setFormData({...formData,[e.target.name]:e.target.value})
@@ -64,7 +54,7 @@ const Login = () => {
             Welcome Back
           </h1>
           <p className="text-gray-600">
-            Login to continue to LocalNews
+            Login to continue to LocaLynx
           </p>
         </div>
 

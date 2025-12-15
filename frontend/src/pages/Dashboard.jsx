@@ -17,7 +17,7 @@ import { Card } from "@/components/ui/card";
 import useAuthStore from "@/store/authStore";
 import API from "@/services/api";
 import Loader from "@/components/Loader";
-import gsap from "gsap";
+
 
 const Dashboard = () => {
   const {user} = useAuthStore()
@@ -36,14 +36,9 @@ const Dashboard = () => {
     }
    } 
    fetchStats()
-
-   gsap.fromTo(
-      ".stat-card",
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, stagger: 0.1 }
-    );
   },[])
 
+  
   if(loading){
     return (
       <div className="flex justify-center items-center w-screen h-screen">

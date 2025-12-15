@@ -4,7 +4,7 @@ import { Card } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 import { toast } from "sonner";
-import gsap from "gsap";
+
 import API from "../services/api";
 import useAuthStore from "../store/authStore";
 import { useNavigate } from "react-router-dom";
@@ -47,14 +47,7 @@ const Admin = () => {
     fetchAdminData();
   }, []);
 
-  /* -------------------- ANIMATIONS -------------------- */
-  useEffect(() => {
-    gsap.fromTo(
-      ".admin-card",
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.4, stagger: 0.1 }
-    );
-  }, [activeTab, posts, reports]);
+  
 
   /* -------------------- ACTIONS -------------------- */
   const deletePost = async (postId) => {

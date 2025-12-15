@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import useAuthStore from "../store/authStore";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 const Navbar = () => {
   const { user, isAuthenticated, logout, isAdmin } = useAuthStore();
@@ -19,6 +20,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
+    toast.success('Logout Successfully');
     navigate("/login");
     setMobileMenuOpen(false);
   };
@@ -33,7 +35,7 @@ const Navbar = () => {
               <Newspaper className="h-6 w-6 text-white" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">
-              LocalNews
+              LocaLynx
             </span>
           </Link>
 

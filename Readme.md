@@ -64,7 +64,6 @@ The platform is built using the industry-standard MERN stack with modern fronten
 | | **Tailwind CSS** | Utility-first CSS framework for rapid styling. |
 | | **Zustand** | Lightweight, fast, and scalable state management. |
 | | **shadcn/ui** | Beautiful, accessible, and customizable UI components. |
-| | **GSAP** | For smooth, performant animations. |
 | | **Sonner** | For elegant and accessible toast notifications. |
 | **Backend** | **Node.js + Express.js** | Fast, unopinionated, minimal web framework. |
 | | **MongoDB + Mongoose** | Flexible NoSQL database and elegant object modeling. |

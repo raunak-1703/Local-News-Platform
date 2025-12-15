@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Toaster } from "sonner";
+import { Toaster } from "./components/ui/sonner";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -10,26 +10,54 @@ import PostDetails from "./pages/PostDetails";
 import Navbar from "./components/Navbar";
 import CreatePost from "./pages/CreatePost";
 import Profile from "./pages/Profile";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
     <>
-    
       <BrowserRouter>
-      <Navbar/>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute adminOnly={true}>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/post/:id" element={<PostDetails />} />
-          <Route path ='/create' element={<CreatePost/>}/>
-          <Route path ='/profile' element={<Profile/>}/>
+          <Route
+            path="/create"
+            element={
+              <ProtectedRoute>
+                <CreatePost />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
 
-      <Toaster position="top-right" richColors closeButton expand />
+      <Toaster position="top-right" richColors closeButton/>
     </>
   );
 };

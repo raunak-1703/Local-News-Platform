@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import useAuthStore from "@/store/authStore";
 import { toast } from "sonner";
-import gsap from "gsap";
+
 
 
 const Register = () => {
@@ -27,11 +27,7 @@ const Register = () => {
       navigate('/')
     }
 
-      gsap.fromTo(
-      ".register-card",
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
-    );
+     
   },[isAuthenticated,navigate])
 
   const handleChange = (e)=>{
@@ -73,7 +69,7 @@ const Register = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Join LocalNews
+            Join LocaLynx
           </h1>
           <p className="text-gray-600">
             Become a citizen journalist today

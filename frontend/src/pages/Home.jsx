@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Search, Filter, TrendingUp } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import gsap from "gsap";
+
 import { toast } from "sonner";
 
 import PostCard from "@/components/PostCard";
@@ -38,40 +38,6 @@ const Home = () => {
     fetchTrending();
   }, []);
 
-  // Animation
-  useEffect(() => {
-   // Animation
-
-  // 1. Checking if posts array has content before running .post-card animation
-  if (posts && posts.length > 0) {
-    gsap.fromTo(
-      ".post-card",
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.08,
-        ease: "power2.out",
-      }
-    );
-  }
-
-  // 2. Checking if trendingPosts array has content before running .trending-item animation
-  if (trendingPosts && trendingPosts.length > 0) {
-    gsap.fromTo(
-      ".trending-item",
-      { opacity: 0, x: -20 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: "power2.out",
-      }
-    );
-  }
-}, [posts, trendingPosts]); 
 
 
   const handleReport = async (post) => {
@@ -105,8 +71,8 @@ const Home = () => {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Hero */}
         <div className="text-center mb-12 space-y-4">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-orange-500 bg-clip-text text-transparent">
-            Hyperlocal News Platform
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-orange-500 bg-clip-text text-transparent mb-3">
+            LocaLync-A Hyperlocal News Platform
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Your community’s voice. Share stories, stay informed.

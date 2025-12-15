@@ -10,7 +10,7 @@ import useAuthStore from "@/store/authStore";
 import usePostStore from "@/store/postStore";
 import { CATEGORIES } from "@/constants/categories";
 import { toast } from "sonner";
-import gsap from "gsap";
+
 
 const CreatePost = () => {
     const navigate = useNavigate()
@@ -28,13 +28,6 @@ const CreatePost = () => {
         location:user?.location||'',
     })
 
-    useEffect(()=>{
-        gsap.fromTo(
-            '.create-form',
-             { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
-        )
-    },[])
 
     const handleChange = (e)=>{
         setFormData({...formData,[e.target.name]:e.target.value});

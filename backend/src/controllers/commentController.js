@@ -17,7 +17,6 @@ export const addComment = async (req,res)=>{
         res.status(201).json(comment);
     }
     catch (error){
-        console.log(error)
         res.status(500).json({message:'Error adding comments'})
     }
 }

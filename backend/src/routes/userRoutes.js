@@ -4,7 +4,7 @@ import protect from '../middleware/authMiddleware.js';
 
 const userRouter = express.Router()
 
+userRouter.get('/dashboard',protect,getMyDashboard)
 userRouter.get('/:userId', getUserProfile);
-userRouter.get('/me/dashboard',protect,getMyDashboard)
 
 export default userRouter;

@@ -24,6 +24,11 @@ const Profile = () => {
     totalUpvotes: 0,
     totalComments: 0,
   });
+  useEffect(()=>{
+    if(posts.length===0){
+        fetchPosts()
+    }
+  },[fetchPosts,posts.length])
 
   useEffect(() => {
     if (!user) return;

@@ -84,10 +84,14 @@ const Navbar = () => {
                   </NavLink>
                 )}
 
-                <Button variant="ghost" size="sm">
-                  <User className="h-4 w-4 mr-2" />
-                  {user?.name}
-                </Button>
+                <NavLink to="/profile">
+                  {({ isActive }) => (
+                    <Button variant={isActive ? "default" : "ghost"} size="sm">
+                      <User className="h-4 w-4 mr-2" />
+                      {user?.name}
+                    </Button>
+                  )}
+                </NavLink>
 
                 <Button variant="outline" size="sm" onClick={handleLogout}>
                   <LogOut className="h-4 w-4 mr-2" />

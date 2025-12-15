@@ -9,6 +9,7 @@ import Admin from "./pages/Admin";
 import PostDetails from "./pages/PostDetails";
 import Navbar from "./components/Navbar";
 import CreatePost from "./pages/CreatePost";
+import Profile from "./pages/Profile";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/admin" element={<Admin />} />
           <Route path="/post/:id" element={<PostDetails />} />
           <Route path ='/create' element={<CreatePost/>}/>
+          <Route path ='/profile' element={<Profile/>}/>
         </Routes>
       </BrowserRouter>
 

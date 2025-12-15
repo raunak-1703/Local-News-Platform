@@ -7,11 +7,14 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
 import PostDetails from "./pages/PostDetails";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <>
+    
       <BrowserRouter>
+      <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />

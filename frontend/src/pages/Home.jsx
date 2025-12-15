@@ -196,7 +196,7 @@ const Home = () => {
                       <div className="flex gap-3 p-3 rounded-lg hover:bg-gray-50 transition">
                         {post.media?.[0] && (
                           <img
-                            src={post.media[0]}
+                            src={post.media[0].url}
                             alt={post.title}
                             className="h-16 w-16 rounded-md object-cover"
                           />

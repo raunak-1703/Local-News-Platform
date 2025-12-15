@@ -86,7 +86,7 @@ const postDetails = () => {
         <Card className="post-content overflow-hidden">
           {currentPost.media?.[0] && (
             <img
-              src={currentPost.media[0]}
+              src={currentPost.media[0].url}
               alt={currentPost.title}
               className="w-full h-96 object-cover"
             />

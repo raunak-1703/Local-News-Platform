@@ -5,14 +5,17 @@ import Report from '../models/reportedModel.js'
 
 export const createPost = async (req, res) => {
   const { title, content, category, location, media } = req.body;
-
+  const transformedMedia = media?.map(url => ({
+        url: url,
+        type: 'image' 
+    }));
   try {
     const post = await Post.create({
       title,
       content,
       category,
       location,
-      media,
+      media:transformedMedia,
       author: req.user._id,
     });
 

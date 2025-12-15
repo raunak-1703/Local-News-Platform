@@ -15,8 +15,8 @@ import usePostStore from "@/store/postStore";
 import gsap from "gsap";
 
 const Profile = () => {
-  const { user } = useAuthStore();
-  const { posts } = usePostStore();
+  const { user, } = useAuthStore();
+  const { fetchPosts,posts } = usePostStore();
 
   const [userPosts, setUserPosts] = useState([]);
   const [stats, setStats] = useState({
@@ -27,6 +27,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (!user) return;
+
 
     const myPosts = posts.filter((post) => post.author?._id === user._id);
 

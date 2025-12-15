@@ -72,10 +72,6 @@ const useAuthStore = create(
         });
       },
 
-      // Check for Admin role
-      isAdmin: () => {
-        return get().user?.role === "admin";
-      },
     }),
 
     {

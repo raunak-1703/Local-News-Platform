@@ -70,7 +70,7 @@ const Navbar = () => {
                 </NavLink>
 
                 {/* Admin Link */}
-                {isAdmin() && (
+                {user?.role==='admin' && (
                   <NavLink to="/admin">
                     {({ isActive }) => (
                       <Button
@@ -84,6 +84,7 @@ const Navbar = () => {
                   </NavLink>
                 )}
 
+                {/* Profile Link */}
                 <NavLink to="/profile">
                   {({ isActive }) => (
                     <Button variant={isActive ? "default" : "ghost"} size="sm">
@@ -171,8 +172,24 @@ const Navbar = () => {
                   )}
                 </NavLink>
 
+                {/* Profile Link (Mobile) */}
+                <NavLink
+                  to="/profile"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {({ isActive }) => (
+                    <Button
+                      variant={isActive ? "default" : "ghost"}
+                      className="w-full justify-start"
+                    >
+                      <LayoutDashboard className="h-4 w-4 mr-2" />
+                      {user?.name}
+                    </Button>
+                  )}
+                </NavLink>
+
                 {/* Admin Link (Mobile) */}
-                {isAdmin() && (
+                {user?.role==='admin' && (
                   <NavLink to="/admin" onClick={() => setMobileMenuOpen(false)}>
                     {({ isActive }) => (
                       <Button

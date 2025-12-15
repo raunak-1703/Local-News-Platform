@@ -40,7 +40,7 @@ const PostCard = ({post,onReport}) => {
       <Link to={`/post/${post._id}`}>
         {/* Image */}
         {post.media?.[0]?.url && (
-          <div className="relative h-48 overflow-hidden">
+          <div className="relative h-48 overflow-hidden mb-2">
             <img
               src={post.media[0].url}
               alt={post.title}

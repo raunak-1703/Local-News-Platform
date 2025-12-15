@@ -1,3 +1,4 @@
+import cloudinary from '../lib/cloudinaryConfig.js';
 import Post from '../models/postModel.js';
 import Report from '../models/reportedModel.js';
 
@@ -13,9 +14,25 @@ export const getAllPostsAdmin = async (req,res)=>{
 
 export const deletePostAdmin = async (req,res)=>{
     try {
-        await Post.findByIdAndDelete(req.params.postId);
+        const post = await Post.findById(req.params.postId);
 
-        res.json({message:"Post removed successfully"})
+        if(!post){
+            return res.status(404).json({message:'Post not found'});
+
+            if(post.media && post.media.length>0){
+                const mediaUrl = post.media[0];
+
+                const publicId = mediaUrl.split('/').pop().split('.')[0]
+
+                await cloudinary.uploader.destroy(publicId);
+
+                await Post.findByIdAndDelete(req.params.postId)
+
+                await Report.deleteMany({post:req.params.PostId});
+
+                res.json({message:'Post deleted successfully'})
+            }
+        }
     } catch (error) {
         res.status(500).json({message:'Error deleting post'});
     }

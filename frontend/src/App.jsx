@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
 import PostDetails from "./pages/PostDetails";
 import Navbar from "./components/Navbar";
+import CreatePost from "./pages/CreatePost";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/post/:id" element={<PostDetails />} />
+          <Route path ='/create' element={<CreatePost/>}/>
         </Routes>
       </BrowserRouter>
 

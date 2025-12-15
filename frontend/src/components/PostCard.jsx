@@ -50,7 +50,7 @@ const PostCard = ({post,onReport}) => {
         )}
 
         <CardHeader className="pb-3">
-          <h3 className="text-xl font-bold leading-tight text-slate-900 group-hover:text-primary line-clamp-2">
+          <h3 className="text-xl font-bold leading-tight text-slate-900 group-hover:text-blue-600 line-clamp-2 ">
             {post.title}
           </h3>
 

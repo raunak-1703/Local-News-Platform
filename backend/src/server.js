@@ -10,7 +10,9 @@ import adminRouter from "./routes/adminRoutes.js";
 
 const app = express();
 const PORT = ENV.PORT;
-app.use(cors());
+app.use(cors({
+  origin:['http://localhost:5173','https://localynx.vercel.app'], credentials:true
+}));
 app.use(express.json());
 
 

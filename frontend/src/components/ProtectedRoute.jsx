@@ -7,7 +7,6 @@ const ProtectedRoute = ({ children, adminOnly = false }) => {
   const { isAuthenticated, user } = useAuthStore();
 
   if (!isAuthenticated) {
-    toast.error('Please login to access this page');
     return <Navigate to="/login" replace />;
   }
 

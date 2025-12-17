@@ -11,8 +11,10 @@ import Navbar from "./components/Navbar";
 import CreatePost from "./pages/CreatePost";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
+import usePostStore from "./store/postStore";
 
 const App = () => {
+
   return (
     <>
       <BrowserRouter>

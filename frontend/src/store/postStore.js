@@ -177,6 +177,8 @@ const usePostStore = create((set) => ({
       comments: [],
     });
   },
+
+ 
 }));
 
 export default usePostStore;

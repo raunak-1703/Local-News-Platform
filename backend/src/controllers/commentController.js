@@ -3,14 +3,15 @@ import Post from "../models/postModel.js";
 
 export const addComment = async (req,res)=>{
     const {content} = req.body;
+    const postId = req.params.postId
     try {
         let comment = await Comment.create({
             text:content,
-            post:req.params.postId,
+            post:postId,
             author:req.user._id,
         })
 
-        await Post.findByIdAndUpdate(req.params.postId,{
+        await Post.findByIdAndUpdate(postId,{
             $inc:{commentsCount:1}
         })
         comment = await comment.populate('author', 'name');

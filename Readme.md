@@ -1,213 +1,209 @@
-# 📰 Localynx – Hyperlocal Citizen Journalism Platform
+# 📰 LocaLynx — A Hyperlocal News Platform
 
-![](https://img.shields.io/badge/Status-InProgress-success)
-![Built with-React](https://img.shields.io/badge/Frontend-React%20%7C%20Vite-blue)
-![Built with-Node.js](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-green)
-![Database-MongoDB](https://img.shields.io/badge/Database-MongoDB-darkgreen)
+**LocaLynx** is a full-stack **hyperlocal news platform** that empowers citizens to report, discover, and engage with news happening **around them** — from street-level issues to community updates.
 
-Localynx is a **hyperlocal news & citizen journalism platform** that allows users to share real-time, verified updates from their neighborhoods. The platform empowers citizens to report news, engage in discussions, upvote important stories, and help surface trending local issues, moving journalism to the grassroots level.
-
-This project was built as part of a **HACKSPHERE HACKATHON**, prioritizing real-world usability, clean architecture, and scalability.
+Built with a modern **MERN stack**, LocaLynx focuses on **community-driven journalism**, real-time engagement, and local transparency.
 
 ---
 
-## 🌟 Why This Project?
+## 🚀 Getting Started
 
-This platform was built to:
-
-* **Promote local voices:** Giving residents a direct channel to report on events affecting their community.
-* **Encourage community-driven journalism:** Shifting the focus from large-scale national news to critical local issues.
-* **Solve the problem of unreported local issues:** Ensuring no local story is missed due to lack of visibility.
-* **Demonstrate a full-stack production-ready application** using the MERN stack.
+LocaLynx can be run **locally** (recommended) or deployed using platforms like **Vercel** and **Render**.
 
 ---
 
-## 🚀 Features
-
-### 🔐 Authentication & Authorization
-* User registration & login (JWT based)
-* Role-based access (**User** / **Admin**)
-* Protected API routes using middleware
-
-### 📝 News Posting
-* Create posts with: **Title**, **Content**, **Category** (Breaking News, Community, Events, etc.), **Location tagging**, and **Image upload** (via Cloudinary).
-* View all posts in reverse chronological order.
-
-### 👍 Community Engagement
-* Upvote / remove upvote on posts.
-* Robust comment system on each post.
-* Reporting feature for inappropriate content.
-
-### 🔥 Trending System
-* Trending posts are dynamically calculated based on: **Upvotes**, **Comments**, and **Recency**.
-* Dedicated **Trending section** on the Home page to surface high-priority local stories.
-
-### 👤 User Features
-* Detailed user profile with all their activities.
-* Personalized Dashboard showing: **Total posts**, **Total upvotes received**, and **Total comments**.
-
-### 🛠 Admin Panel
-* Comprehensive view of all posts.
-* Ability to **Delete inappropriate posts**.
-* Dedicated section to manage **Reported content**.
-* Admin-only protected routes and features.
-
----
-
-## 🧱 Tech Stack
-
-The platform is built using the industry-standard MERN stack with modern frontend tools.
-
-| Category | Technology | Description |
-| :--- | :--- | :--- |
-| **Frontend** | **React (Vite)** | Modern, fast development environment. |
-| | **Tailwind CSS** | Utility-first CSS framework for rapid styling. |
-| | **Zustand** | Lightweight, fast, and scalable state management. |
-| | **shadcn/ui** | Beautiful, accessible, and customizable UI components. |
-| | **Sonner** | For elegant and accessible toast notifications. |
-| **Backend** | **Node.js + Express.js** | Fast, unopinionated, minimal web framework. |
-| | **MongoDB + Mongoose** | Flexible NoSQL database and elegant object modeling. |
-| | **JWT** | Secure, stateless authentication mechanism. |
-| | **Cloudinary** | Cloud service for image storage and delivery. |
-| | **Multer** | Middleware for handling `multipart/form-data` (image uploads). |
-| **Deployment** | **Vercel** | Hosting for the frontend application. |
-| | **Render** | Hosting for the backend API. |
-| | **MongoDB Atlas** | Managed, highly-available cloud database service. |
-
----
-
-## 📁 Project Structure
-
-```text
-Local-News-Platform/
-├── backend/
-│   ├── node_modules/
-│   ├── src/
-│   │   ├── controllers/    # Express route logic functions
-│   │   ├── lib/            # Utility and configuration files
-│   │   ├── middleware/     # Auth checks, logging, error handling
-│   │   ├── models/         # MongoDB schemas (Mongoose models)
-│   │   ├── routes/         # API endpoints definitions
-│   │   ├── utils/          # General helper functions
-│   │   └── server.js       # Main backend entry point (Express app)
-│   └── package.json
-│
-├── frontend/
-│   ├── .vite/
-│   ├── node_modules/
-│   ├── public/             # Static assets
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   ├── constants/      # App-wide constants/config values
-│   │   ├── lib/            # Frontend utility functions
-│   │   ├── pages/          # Top-level route components
-│   │   ├── services/       # API interaction logic (Axios calls)
-│   │   ├── store/          # State management (Zustand store)
-│   │   ├── App.jsx         # Main React component
-│   │   ├── index.css
-│   │   └── main.jsx        # Entry point for React app (index.html link)
-│   ├── .env
-│   ├── .gitignore
-│   ├── components.json     # shadcn/ui configuration
-│   ├── eslint.config.js
-│   ├── package.json
-│   ├── README.md           # Project documentation
-│   ├── tsconfig.json      
-│   └── vite.config.js
-├── .gitignore
-└── README.md               # Root documentation
-```
-
-## 🔧 Environment Variables
-
-### Backend (`backend/.env`)
-Create a file named `.env` in the `backend/` directory and add your connection strings and keys:
-
-```env
-PORT=3000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=a_very_secure_random_string
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-```
-
-### Frontend (`frontend/.env`)
-Create a file named `.env` in the `frontend/` directory to define the backend API URL:
-
-```env
-VITE_API_URL=http://localhost:3000/api
-# Replace with the deployed URL (e.g., https://your-backend-url/api) for production
-```
-
-## 🧑‍💻 Running Locally
+## 🧪 Running Locally
 
 ### 1️⃣ Clone the Repository
-
 ```bash
-git clone https://github.com/your-username/Local-News-Platform.git
+git clone https://github.com/raunak-1703/Local-News-Platform
 cd Local-News-Platform
 ```
 
-### 2️⃣ Backend Setup
-
-Navigate to the backend folder, install dependencies, and start the server:
-
+### 2️⃣ Install Dependencies
+**Frontend**
 ```bash
+cd frontend
+npm install
+```
+
+**Backend**
+```bash
+cd ../backend
+npm install
+```
+
+### 3️⃣ Setup Environment Variables
+
+**Backend (backend/.env)**
+```bash
+PORT=3000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+CLOUDINARY_CLOUD_NAME=your cloudinary cloud name
+CLOUDINARY_API_KEY=your cloudinary api key
+CLOUDINARY_API_SECRET=your cloudinary secret key
+```
+
+**Frontend (frontend/.env)**
+```bash
+VITE_API_URL=http://localhost:3000/api
+VITE_CLOUDINARY_CLOUD_NAME=your cloudinary cloud name
+VITE_CLOUDINARY_UPLOAD_PRESET=cloudinary upload preset
+```
+
+### 4️⃣ Start the Application
+**Backend**
+
 cd backend
-npm install
-npm run dev
-```
-
-The backend API server will run at: `http://localhost:3000`.
-
-### 3️⃣ Frontend Setup
-
-Open a new terminal window. Navigate back to the project root and then into the frontend folder. Install dependencies and start the application:
-
 ```bash
-cd ../frontend
-npm install
 npm run dev
 ```
 
-The frontend application will run at: `http://localhost:5173`.
-
-## 🔗 API Endpoints (Sample)
-
-| Method | Endpoint | Description | Requires Auth |
-| :--- | :--- | :--- | :--- |
-| **POST** | `/api/auth/register` | Register a new user | No |
-| **POST** | `/api/auth/login` | Log in a user and get JWT | No |
-| **GET** | `/api/posts` | Get all news posts (reverse chronological) | No |
-| **GET** | `/api/posts/trending` | Get posts calculated as trending | No |
-| **POST** | `/api/posts` | Create a new news post | Yes (User) |
-| **POST** | `/api/posts/:id/upvote` | Upvote or remove upvote from a post | Yes (User) |
-| **GET** | `/api/comments/:postId` | Get comments for a specific post | No |
-| **POST** | `/api/comments/:postId` | Add a new comment to a post | Yes (User) |
+**Frontend**
+```bash
+cd frontend
+npm run dev
 
 
-## 🔒 Admin Panel Access (Temporary)
+Open in browser → http://localhost:5173
+```
 
-**NOTE:** This user is created for testing and demonstration purposes only. Please use this account to check the admin dashboard features in the live deployed project.
+---
 
-| Credential Type | Value |
-| :--- | :--- |
-| **Admin User ID (Email)** | `raunak@test.com` |
-| **Password** | `123456` |
+## 🌍 Deployment
+```text
+# Frontend (Vercel)
+Build command: npm run build
 
-### ➡️ Next Steps
-1.  Navigate to the `/login` page.
-2.  Log in using the credentials above.
-3.  Visit the `/admin` route to access the Admin Panel.
+# Backend (Render)
+Build command: npm install
+Start command: npm start
+```
+---
+## 🌟 What Problem Does LocaLynx Solve?
+
+Mainstream news often overlooks **local voices** and **neighborhood-level issues**.  
+LocaLynx bridges this gap by:
+
+- Giving **ordinary citizens a voice**
+- Highlighting **hyperlocal events & problems**
+- Encouraging **community participation**
+- Ensuring **transparent moderation**
+
+---
+
+## ✨ Core Features
+
+### 📝 Community-Driven News
+- Create posts about local incidents, events, or announcements.
+- Categorized posts (Community, Crime, Infrastructure, Events).
+
+### 👍 Upvotes & Engagement
+- Readers can **upvote posts**.
+- Trending posts highlighted by engagement.
+
+### 💬 Comment System
+- Logged-in users can comment on posts.
+- Encourages discussion and civic awareness.
+
+### 📍 Location-Based Filtering
+- Filter and view news posts by **location**.
+- Makes local issues easier to discover.
+
+### 🚨 Reporting & Moderation
+- Users can **report inappropriate or false posts**.
+- Admin panel for reviewing and moderating content.
+
+### 👤 User Profiles
+- View user details and activity stats.
+- Track posts, upvotes, and engagement history.
+
+### 📊 Dashboard Analytics
+- Personal dashboard showing:
+  - Total posts
+  - Total upvotes
+  - Total comments
+- Interactive charts for engagement metrics.
+
+### 🔐 Authentication & Authorization
+- Secure **JWT-based authentication**.
+- Role-based access (User / Admin).
+
+---
+
+## 🎥 Demo & Media
+
+### 🎬 Project Demo Video
+> *(Click the link below to watch the demo)*  
+▶️ **[Watch Demo Video](https://youtu.be/D3I2NcFsaMw)**
 
 
-## 🏁 Future Enhancements
+### 🖼️ Screenshots
 
-The following features are planned for future iterations:
+| Page | Preview |
+|------|---------|
+| Home Page | ![Home Page Screenshot](demoFiles/home.png) |
+| Post Details | ![Post Details Page Screenshot](demoFiles/postDetails.png) |
+| Create Post | ![Create Post Page Screenshot](demoFiles/create_post.png) |
+| Dashboard | ![Dashboard Page Screenshot](demoFiles/dashboard.png) |
+| Admin Panel | ![Admin Panel Page Screenshot](demoFiles/adminPanel.png) |
+| Profile Page | ![Profile Page Screenshot](demoFiles/profile.png) |
+| Login Page | ![Login Page Screenshot](demoFiles/login.png) |
+| Register Page | ![Register Page Screenshot](demoFiles/register.png) |
 
-- Real-time updates using Socket.io for live comments and upvotes.
-- AI-based content moderation to proactively flag inappropriate posts.
-- AI-generated headlines suggestions for users creating posts.
-- Improved social media sharing integration.
-- Enhanced mobile responsiveness and PWA capabilities.
+                                                                          
+
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React + Vite**
+- **Tailwind CSS**
+- **shadcn/ui**
+- **Lucide Icons**
+- **Zustand** (state management)
+- **React Router**
+- **Sonner** (toast notifications)
+- **Recharts** (visual analytics)
+
+### Backend
+- **Node.js**
+- **Express.js**
+- **MongoDB + Mongoose**
+- **JWT Authentication**
+- **Socket.IO** *(planned / optional for real-time updates)*
+
+### Infrastructure
+- **Vercel** — Frontend Hosting  
+- **Render** — Backend Hosting  
+- **MongoDB Atlas** — Cloud Database  
+
+
+
+---
+
+## 🚧 Future Enhancements
+
+- 🔔 Real-time notifications using Socket.IO  
+- 🗳️ Community polls & voting  
+- 🧠 AI-based content moderation  
+- 📱 Progressive Web App (PWA) version  
+- 🗺️ Map-based news visualization  
+
+---
+
+## ❤️ Built With Purpose
+
+**LocaLynx** was built to amplify **local voices**, promote **transparency**, and strengthen **community awareness** through technology.
+
+> “Real change starts locally.” 🌍
+
+---
+
+## 🔗 Links
+
+- **GitHub Repository:** https://github.com/raunak-1703/Local-News-Platform
+- **Live Demo:** https://localynx.vercel.app

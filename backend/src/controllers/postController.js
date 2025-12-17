@@ -58,7 +58,6 @@ export const toggleUpvote = async (req, res) => {
 
   post.upvoteCount = post.upvotes.length;
   await post.save();
-
   res.json({ upvoteCount: post.upvoteCount,
     upvotes: post.upvotes
   });

@@ -18,7 +18,11 @@ const Login = () => {
     password:'',
   })
 
-
+  useEffect(()=>{
+    if(isAuthenticated){
+      navigate(-1)
+    }
+  },[isAuthenticated,navigate])
 
   const handleChange = (e)=>{
     setFormData({...formData,[e.target.name]:e.target.value})

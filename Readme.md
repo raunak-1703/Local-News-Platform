@@ -16,7 +16,7 @@ LocaLynx can be run **locally** (recommended) or deployed using platforms like *
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/raunak-1703/Local-News-Platform
+git clone https://github.com/raunak-1703/Local-News-Platform.git
 cd Local-News-Platform
 ```
 
